@@ -231,7 +231,6 @@ body {
     background-color: #188CE8;   
 }
 
-
 /* Section features */
 
 .features {
@@ -465,6 +464,43 @@ body {
     background-color: var(--accent-color);
 }
 
+/* modal window */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    /* visibility: hidden;
+    opacity: 0;
+    pointer-events: none; */
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    
+    background-color: var(--primery-bg-color);
+    border-radius: 4px;
+}
+
+.btn-close {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%; 
+}
+
+
+
 
 /*-------------- Page portfolio ------------ */
 
@@ -499,6 +535,37 @@ body {
 }
 
 /* project */
+
+.project-thumb {
+    position: relative;
+}
+
+.project-thumb::before {
+    display: inline-block;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+
+}
+
+.project-thumb-text {
+    position: absolute;
+    padding: 63px 24px;
+    color: var(--primery-bg-color);
+    font-size: 18px;
+    line-height: 1.56;
+    opacity: 0;
+}
+
+.project-link:hover .project-thumb::before,
+.project-link:focus .project-thumb::before,
+.project-link:hover .project-thumb-text,
+.project-link:focus .project-thumb-text {
+   opacity: 1;
+}
 
 .project-caption {
     padding: 20px 24px;
