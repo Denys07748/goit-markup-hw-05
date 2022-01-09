@@ -484,11 +484,18 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+
+    transition: opacity var(--transit-time) var(--timing-function);
 }
 
 .backdrop.is-hidden {
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .modal,
@@ -496,7 +503,6 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .modal {
@@ -504,6 +510,9 @@ body {
     height: 581px; 
     background-color: var(--primery-bg-color);
     border-radius: 4px;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform var(--transit-time) var(--timing-function);
 }
 
 .btn-close {
@@ -523,7 +532,8 @@ body {
 }
 
 .btn-close-icon {
-    fill: currentColor; 
+    fill: currentColor;
+    transform: translate(-50%, -50%); 
 } 
 
 .btn-close:hover,
@@ -572,34 +582,32 @@ body {
 
 .project-thumb {
     position: relative;
+    overflow: hidden;
 }
 
-.project-thumb::before {
-    display: inline-block;
+.project-overlay {
     position: absolute;
-    content: "";
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(33, 150, 243, 0.9);
-    opacity: 0;
+    padding: 63px 24px;
+    transform: translateY(100%);
+    transition: transform var(--transit-time) var(--timing-function);
+}
 
+.project-link:hover .project-overlay,
+.project-link:focus .project-overlay {
+    transform: translateY(0);
 }
 
 .project-thumb-text {
-    position: absolute;
-    padding: 63px 24px;
     color: var(--primery-bg-color);
     font-size: 18px;
     line-height: 1.56;
-    opacity: 0;
 }
 
-.project-link:hover .project-thumb::before,
-.project-link:focus .project-thumb::before,
-.project-link:hover .project-thumb-text,
-.project-link:focus .project-thumb-text {
-   opacity: 1;
-}
 
 .project-caption {
     padding: 20px 24px;
@@ -612,6 +620,7 @@ body {
     line-height: 2;
     letter-spacing: 0.06em;   
 } 
+
 .project-text {
     margin-top: 4px;
     color: inherit;
