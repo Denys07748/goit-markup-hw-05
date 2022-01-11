@@ -12,6 +12,12 @@
     --additional-bg-color: #F5F4FA;
     --header-logo-color: #000;
     --social-icon-color: #AFB1B8;
+    --overlay-color: rgba(33, 150, 243, 0.9);
+    --functions-bg-color: rgba(47, 48, 58, 0.8);
+    --gradient-color: rgba(47, 48, 58, 0.4);
+    --address-color: rgba(255, 255, 255, 0.6);
+    --social-link-bg-color: rgba(255, 255, 255, 0.1);
+    --backdrop-bg-color: rgba(0, 0, 0, 0.2);
     --card-gap: 30px;
     --card-item: 3;
     --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -156,7 +162,7 @@ body {
     position: absolute;
     display: block;
     left: 0;
-    bottom: 0;
+    bottom: -1px;
     content: "";
     height: 4px;
     width: 100%;
@@ -202,7 +208,7 @@ body {
     margin-right: auto;
     background-color: var(--secondary-bg-color);
     background-image: 
-    linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    linear-gradient(var(--gradient-color), var(--gradient-color)),
     url('../images/overlay_img.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -314,7 +320,7 @@ body {
     padding: 27px 0;
     width: 100%;
     color: var(--primery-bg-color);
-    background-color: rgba(47, 48, 58, 0.8);
+    background-color: var(--functions-bg-color);
 }
 
 
@@ -444,7 +450,7 @@ body {
     margin-bottom: 9px;
 }
 .address-link {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--address-color);
     transition: color var(--transit-time) var(--timing-function);
 }
 .address-link.adds {
@@ -465,7 +471,7 @@ body {
 }
 
 .footer-social .social-link {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--social-link-bg-color);
     color: var(--primery-bg-color);
     transition: background-color var(--transit-time) var(--timing-function);
 }
@@ -483,10 +489,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--backdrop-bg-color);
 
-    transition: opacity var(--transit-time) var(--timing-function);
-}
+    transition: visibility var(--transit-time) var(--timing-function),
+    opacity var(--transit-time) var(--timing-function);
+} 
 
 .backdrop.is-hidden {
     visibility: hidden;
@@ -559,7 +566,7 @@ body {
 .filter-button {
     padding: 6px 22px 6px 22px;
     color: var(--title-text-color);
-    background-color: #F5F4FA;
+    background-color: var(--additional-bg-color);
     font-weight: 500;
     font-size: 16px;
     line-height: 1.62;
@@ -591,7 +598,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(33, 150, 243, 0.9);
+    background-color: var(--overlay-color);
     padding: 63px 24px;
     transform: translateY(100%);
     transition: transform var(--transit-time) var(--timing-function);
@@ -635,4 +642,4 @@ body {
 .project-link:hover,
 .project-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
+} 
